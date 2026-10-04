@@ -1,4 +1,4 @@
-College Event Management System - Frontend
+# College Event Resource Management System - Frontend
 
 React frontend for managing college events, student registrations, resource bookings and admin approvals.
 
