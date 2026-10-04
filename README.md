@@ -1,56 +1,67 @@
-# College Event Resource Management System - Frontend
+# College Event Resource Management System - Backend
 
-React frontend for managing college events, student registrations, resource bookings and admin approvals.
+REST API for the College Event Resource Management System. It handles users, events, bookings, admin approvals and email notifications.
 
-Backend repo: https://github.com/Brahmanaditya3758/college-event-backend
+Frontend repo: https://github.com/Brahmanaditya3758/college-event-frontend
 
 Features
 
 Keep only what is already working. Delete the rest.
 
-Student registration and login
-Browse and register for events
-Lab / projector booking
-Admin approval of events and bookings
-Role-based screens (student and admin)
+User registration and login with JWT authentication
+Role-based access control (student and admin)
+Create and manage events, student registrations
+Lab / projector booking with admin approval
+Email notifications (Nodemailer)
 Reports for admins
 Tech stack
 
-React, JavaScript, CSS, Axios (API calls)
+Node.js, Express, MongoDB Atlas, JWT, Nodemailer
 
-Screenshots
+API endpoints
 
-Show Image Show Image Show Image
+Fill this table with your real routes.
 
+Method	Endpoint	What it does	Access
+POST	/api/auth/register	Create a new user	Public
+POST	/api/auth/login	Login and get a token	Public
+GET	/api/events	List events	Logged in
+POST	/api/events	Create an event	Admin
 Project structure
-src/
-|-- components/   # reusable UI parts
-|-- pages/        # screens (Home, Events, Booking, Admin)
-|-- services/     # API calls to the backend
-`-- App.js
+.
+|-- server.js
+|-- routes/        # API routes
+|-- controllers/   # request logic
+|-- models/        # MongoDB schemas
+|-- middleware/    # auth and role checks
+`-- .env           # secrets (never commit this)
 
 Change this to match your real folders.
 
 How to run locally
 Clone the repository
 bash
-   git clone https://github.com/Brahmanaditya3758/college-event-frontend.git
-   cd college-event-frontend
+   git clone https://github.com/Brahmanaditya3758/college-event-backend.git
+   cd college-event-backend
 Install packages
 bash
    npm install
 Create a .env file
-   REACT_APP_API_URL=http://localhost:5000
-Start the app
+   PORT=5000
+   MONGO_URI=<your MongoDB Atlas connection string>
+   JWT_SECRET=<a long random secret>
+   EMAIL_USER=<email for notifications>
+   EMAIL_PASS=<app password>
+Start the server
 bash
    npm start
-Open http://localhost:3000
+The API runs on http://localhost:5000
 
-Make sure the backend is running first.
+Never upload your real .env file to GitHub. Add .env to .gitignore.
 
 Status
 
-In progress. Next: Docker and CI/CD.
+In progress. Next: Docker, CI/CD pipeline, and AWS deployment.
 
 Author
 
